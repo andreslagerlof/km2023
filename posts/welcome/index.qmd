@@ -1,12 +1,106 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
-date: "2023-08-12"
-categories: [news]
+title: "Välkommen till KM 2023"
+author: "Andrés och Tor"
+date: "2023-09-04"
+image: "joe-caione-unsplash.jpg"
 ---
 
-This is the first post in a Quarto blog. Welcome!
+## Förbered er för KM 2023
 
-![](thumbnail.jpg)
+![Foto: Joe Caione på Unsplash](joe-caione-unsplash.jpg)
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+Hjärtligt välkomna tillbaka till en ny och spännande fäkttermin på FFF! I viss mån satte ju terminen igång redan i våras då mångas tankar redan var fast fixerade vid höstens stora händelse och efter stenhård sommarträning har vi snart nått fram till det som ligger övers på vår gemensamma bucket list: FFF:s KM 2023!
+
+Innan vi går in på hämningslösa spekulationer kring hur detta års KM kan tänkas utvecklas till ska vi börja med en nyttig diet bestående av viktig information om tävlingen.
+
+## Datum och tider
+
+Se till att skriva upp tävlingsdatumen i era kalendrar:
+
+```{r}
+#| label: preparation
+#| echo: false
+#| warning: false
+
+# Load libraries
+library(tidyverse)
+library(here)
+library(lubridate)
+library(epoxy)
+
+# Read data
+dates <- read_csv2(
+  here("assets", "data","dates.csv")
+  )
+```
+
+```{epoxy}
+- Deltävling {1:5}, torsdagen {day(dates$date)} {month(dates$date, label = TRUE)}, kl. 19:00
+```
+
+Var också uppmärksamma på tiden!
+
+::: callout-note
+## Kom i tid!
+
+Skriv upp dig kl. 18:45, **start kl. 19:00**.
+:::
+
+## Regler
+
+Som vanligt består KM av 5 stycken deltävlingar där deltagarna får poäng baserat på placering. Tävlingsformatet är alla möter alla i match om 5 stötar. Matcherna protokollförs och deltagarna ansvarar själva för att fylla i resultat samt att räkna samman antal segrar, utdelade och mottagna stötar samt stötindex.
+
+::: callout-note
+## Håll protokollet rent!
+
+Skriv in resultatet i protokollet på ett tydligt och läsligt sätt
+:::
+
+Om två eller flera fäktare har samma antal segrar avgörs tävlingstillfället genom omfäktning.
+
+Om ni kommer för sent får ni inte delta, se därför till att komma i god tid.
+
+Dessutom är det viktigt att fullfölja tävlingen. Se därför till att er utrustning är i toppskick. En värja räcker inte, ha minst en extravärja.
+
+## Poängsystem
+
+Vid beräkning av totalvinnare är det poängsumman från de 4 bästa placeringarna räknas samman och den fäktare med flest poäng vinner. Om flera fäktare har samma poäng vid sammanräkningen avgörs placeringen av bästa placeringen, dvs flest 1:a platser, flest 2:a platser, etc. Om även där är lika avgörs placeringarna 1-3 genom omfäktning.
+
+Och så här ser poängfördelningen ut:
+
+| Placering | Poäng |
+|-----------|-------|
+| 1         | 25    |
+| 2         | 22    |
+| 3         | 19    |
+| 4         | 17    |
+| 5         | 15    |
+| 6         | 13    |
+| 7         | 12    |
+| 8         | 11    |
+| 9         | 10    |
+| 10        | 9     |
+| 11        | 8     |
+| 12        | 7     |
+| 13        | 6     |
+| 14        | 5     |
+| 15        | 4     |
+| 16        | 3     |
+| 17        | 2     |
+| 18 --     | 1     |
+
+## KM ingår i uttagningen till lag SM
+
+Notera också att KM ingår som en av uttagningstävlingarna för uttagningen till lag SM. Poängen från det sammanlagda resultatet på KM, efter deltävling 5, kan således tillgodoräknas i uttaningen till lag-SM. Närmare information om det fullständiga uttagningsprinciperna för lag-SM kommer att läggas ut separat.
+
+## Tävlingsledning
+
+Det är i vanlig ordning Sportchefen Tor med stöd av Andrés som utgör tävlingsledningen. Har ni frågor, synpunkter eller kommentarer tar vi gärna emot dessa.
+
+## Vi hörs snart igen!
+
+Det var allt för den här gången, men håll ögonen öppna. Inom kort kommer en rapport från våra anlytiker med insiktsfulla prognoser för vad vi kan förvänta oss rent idrottsligt av årets KM.
+
+Kom ihåg: det finns fortfarande tid för att finslipa er form inför KM så intensifiera er träning!
+
+*Vi ses på pisten snart!*
