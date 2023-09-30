@@ -91,9 +91,10 @@ tot_res <- points |>
 ```{r}
 #| label: table_prep
 
-tot_res |> 
-    select(-c(gender, "1")) |> 
-    rename(Namn = name, Placering = rank, Poäng = sum_points) |> 
+points |> 
+    select(-c(gender, comp_no)) |> 
+    arrange(place) |> 
+    rename(Namn = name, Placering = place, Poäng = points) |> 
     gt() |> 
     tab_header(
       title = paste0("Resultat från KM, deltävling ", 
