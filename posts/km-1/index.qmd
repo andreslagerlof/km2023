@@ -1,5 +1,5 @@
 ---
-title: "Rapport från KM deltävling 2"
+title: "Rapport från KM deltävling 1"
 author: "Andrés"
 date: "2023-09-30"
 image: "grigori1.jpg"
