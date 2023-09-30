@@ -1,0 +1,111 @@
+---
+title: "Rapport från KM deltävling 2"
+author: "Andrés"
+date: "2023-09-30"
+image: "grigori1.jpg"
+description: "Nu är höstens mest efterlängtade premiär avklarad när inte mindre än 24 högt motiverade och talangfulla fäktare släpptes lös i årets första KM-deltävling. Som förväntat bjöd tävlingen på många, spännande nyheter och överraskningar, men en sak var sig lik – ingen kan rubba Grigori!"
+execute:
+  echo: false
+  warning: false
+---
+
+![Grigori segrare i KMs första deltävling](grigori.jpg){fig-alt="grigori segrare i KMs första deltävling"}
+
+## Intressanta nyheter
+
+För den kunniga publiken fanns det flera viktiga iakttagelser att notera, inte minst att ett antal nya och synnerligen intressanta fäktare presenterade sig i KM-sammanhang. Vi kunde glädjas åt ett celebert besök från Lidingö fäktklubb i form av Neolie Lippert och åt de nyblivna FFF:arna Alexander Hallonsten, Elwin Elg samt Vedran Markotta. Alla kände sig uppenbarligen väl hemmastadda och kastade sig oblygt in i festligheterna. 
+
+## De unga utmanar
+
+Som ni minns från Vårcupen har de yngre beslutat att ta klivet in i rampljuset och visst lyste det om fäktare som Ian (3:a), Elwin (4:a) och Ernest (5:a). Ingen lyste emellertid starkare än Vedran, som flyttat till Stockholm för att läsa medicin på Karolinska. Det är uppenbart för alla att äkarvetenskapen har mycket att hoppas på i denna långa, vänsterhänta fäktare som med kirurgisk precision radade upp segerar. När han med nöjd min summerade sitt dagsverke kunde han konstatera att han, med sina 19 segrar, hade förtjänat en imponerande 2:a plats! Bra jobbat Vedran!
+
+På damsidan kan man inte annat än imponeras av Linnea, Louise, Eden och Leonie, som utan att blinka håvade hem drivor av segrar.
+
+Starkt fäktade också Francesco och Holger som placerade sig på fina 10:e respektive 11:e platser.
+
+## De rutinerade håller emot
+
+Nu ska man inte förledas att tro att KM har förvandlats till en ungdomsgård. Rutin och erfarenhet betalar sig alltjämt väl. Det bevisade inte minst Janne och Ehsan, som med sina 16 respektive 15 segrar placerade sig på platserna 6 och 7, följda av Tor som med 14 segrar säkrade plats 8.
+
+## Grigori ohotad på tronen
+
+Som så många gånger tidigare kan vi ånyo konstatera att det trots allt finns olika dimensioner inom vår sport. Utan att på något sätt ta något ifrån alla bragder vi tidigare har nämnt kan vi konstatera att Grigori cirkulerar i en annan omloppsbana än de andra stjärnorna. Med sina 22 segrar var han i en klass för sig och för detta premierades han med en välförtjänt seger. Stort grattis Grigori!
+
+Med detta fick vi en totallista som ser ut så här
+
+```{r}
+#| label: load-libraries
+
+library(tidyverse)
+library(here)
+library(stringr)
+library(gt)
+library(epoxy)
+
+```
+
+```{r}
+#| label: load-data-and-functions
+
+km <- read_csv(here("assets", "data", "km-res-2023.csv"))
+
+# Source calculate_points function
+source(here("assets", "functions", "custom_functions.R"))
+
+```
+
+```{r}
+#| label: set-manual-vars
+
+# Define current competition
+current_comp_name <- "km_1"
+
+# Define current comp no
+current_comp_no <- parse_number(current_comp_name)
+
+```
+
+```{r}
+#| label: grand_tot_prep
+
+# Reshape to long format
+km_long <- to_long_format(km) 
+
+
+km_long_clean <- km_long |> 
+  filter(comp_no <= current_comp_no) |>
+  filter(!is.na(place))
+
+# Calculate points
+points <- km_long_clean |> 
+  calculate_points()  
+
+grand_tot <- points |> 
+  calculate_grand_tot()
+
+tot_res <- points |> 
+  return_res()
+
+```
+
+```{r}
+#| label: table_prep
+
+tot_res |> 
+    select(-c(gender, "1")) |> 
+    rename(Namn = name, Placering = rank, Poäng = sum_points) |> 
+    gt() |> 
+    tab_header(
+      title = paste0("Resultat från KM, deltävling ", 
+                     current_comp_no)
+    )
+
+```
+
+För den som vill detaljstudera protokollet hittar ni det här
+
+![Tävlingsprotokollet från KM 1](resultat_km1.jpg){fig-alt="Tävlingsprotokollet från KM 1"}
+
+Vi ses igen den 19 oktober.
+
+Träna hårt fram till dess!

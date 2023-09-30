@@ -4,7 +4,7 @@
 # This function takes a dataframe with a variable called "place" and calculates points
 
 calculate_points <- function(df, place) {
-  tot <- df %>% 
+  tot <- df |> 
     mutate(points = case_match(place,
                                1 ~ 25,
                                2 ~ 22,
@@ -23,7 +23,7 @@ calculate_points <- function(df, place) {
                                15 ~ 4,
                                16 ~ 3,
                                17 ~ 2,
-                               between(place, 18, 40) ~ 1
+                               .default = 1
     ))
 }
 
@@ -38,12 +38,14 @@ to_long_format <- function(df){
                  values_to = "place")
 }
 
+
+
 # Create competition results table ---------------------------------------
 
 # Prepare table
 results_table <- function(df){
   df |> 
-    filter(comp_no == 4) %>% 
+    filter(comp_no == current_comp_no) %>% 
     select(-c(gender, comp_no, points)) %>%
     rename(Namn = name, Placering = place) %>% 
     na.omit(Placering) %>% 
