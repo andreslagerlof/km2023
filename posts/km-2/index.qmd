@@ -3,7 +3,7 @@ title: "Rapport från deltävling 2"
 author: "Andrés"
 date: "2023-10-21"
 image: "grigori_saf_2022-2.jpg"
-description: "Inte minder än 28 fäktare hjälptes åt  att höja temperaturen ytterligare några grader över kokpunkten i KMs deltävling 2. Allt för att vinna ära och berömmelse. Denna gång kunde publiken också glädjas att se landslagsfäktarna Linus från Uppsala och Christopher visa upp sina färdigheter på pisten."
+description: "Inte minder än 28 fäktare hjälptes åt  att höja temperaturen ytterligare några grader över kokpunkten i KMs deltävling 2. Allt för att vinna ära och berömmelse. Denna gång kunde publiken också glädjas att se landslagsfäktarna Linus från Uppsala och Christopher från DIF visa upp sina färdigheter på pisten."
 execute:
   echo: false
   warning: false
@@ -13,7 +13,7 @@ execute:
 
 ## Spänningen ökar
 
-Den andra deltävlingen bjöd, liksom förra gången, publiken på uppeendeväckande nyheter. Inte minst i form av en rad debutanter som Thomas, Mathias, Lucas, Ludvig, Vendela, Otis och Marco som alla gjorde säsongspremiär. Dessutom fick klubben celebert besök av landslagsfäktarna Linus och Christopher som också tog tillfället i akt för en sesångsdebut. Tillsammans var det inte mindre än 28 fäktare som med brinnande entusiasm gjorde tävlingen till fäktfest.
+Den andra deltävlingen bjöd, liksom förra gången, publiken på uppeendeväckande nyheter. Inte minst i form av en rad debutanter som Thomas, Mathias, Lucas, Ludvig, Vendela, Otis och Marco som alla gjorde säsongspremiär. Dessutom fick klubben celebert besök av landslagsfäktarna Linus och Christopher som också tog tillfället i akt för en sesongsdebut. Tillsammans var det inte mindre än 28 fäktare som med brinnande entusiasm gjorde tävlingen till fäktfest.
 
 ![Mathias myser när han betraktar protokollet. I bakgrunden pågår den hårda kampen.](km-2_kamp%20(1).jpg)
 
