@@ -3,7 +3,7 @@ title: "Rapport från deltävling 2"
 author: "Andrés"
 date: "2023-10-21"
 image: "grigori_saf_2022-2.jpg"
-description: "Spänningen höjde temperaturen ytterligare några grader över kokpunkten i KMs deltävling 2 när inte mindre än 28 fäktare kämpade för ära och berömmelse. Denna gång kunde publiken också glädjas att se landslagsfäktarna Linus från Uppsala och Christopher visa upp sina färdigheter på pisten."
+description: "Inte minder än 28 fäktare hjälptes åt  att höja temperaturen ytterligare några grader över kokpunkten i KMs deltävling 2. Allt för att vinna ära och berömmelse. Denna gång kunde publiken också glädjas att se landslagsfäktarna Linus från Uppsala och Christopher visa upp sina färdigheter på pisten."
 execute:
   echo: false
   warning: false
