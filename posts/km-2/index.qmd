@@ -1,0 +1,144 @@
+---
+title: "Rapport från deltävling 2"
+author: "Andrés"
+date: "2023-10-21"
+image: "grigori_saf_2022-2.jpg"
+description: "Spänningen höjde temperaturen ytterligare några grader över kokpunkten i KMs deltävling 2 när inte mindre än 28 fäktare kämpade för ära och berömmelse. Denna gång kunde publiken också glädjas att se landslagsfäktarna Linus från Uppsala och Christopher visa upp sina färdigheter på pisten."
+execute:
+  echo: false
+  warning: false
+---
+
+![Grigori tar sin andra raka seger](grigori_saf_2022-2.jpg)
+
+## Spänningen ökar
+
+Den andra deltävlingen bjöd,liksom förra gången, publiken på spännande nyheter. Inte minst med en rad debutanter som Thomas, Mathias, Lucas, Ludvig, Vendela, Otis och Marco som alla gjorde säsongspremiär. Dessutom fick klubben celebert besök av landslagsfäktarna Linus och Christopher som också de debuterade för året. Tillsammans var det inte mindre än 28 fäktare som med brinnande entusiasm gjorde tävlingen till fäktfest.
+
+![Mathias myser när han betraktar protokollet. I bakgrunden pågår den hårda kampen.](km-2_kamp%20(1).jpg)
+
+## Nykomlingarna tar för sig
+
+Som gäster tog det inte lång tid för Linus och Christopher att känna sig väl hemmastadda och utan närmare ceremonier började de sluka segrar med god aptit. Båda lyckades med konsttycket att rada upp hela 24 segrar var och efter stöträkning kunde Christopher belåtet konstatera att han därmed tagit hand om 2:a platsen framför Linus som således slutade som 3:a, även det en fin prestation. Grattis och välkomna åter!
+
+## De unga vinner terräng
+
+Återigen förstärker de yngre fäktarna sina positioner. Detta bevisade både Vedran, Ian, Lucas med en 4:e till 6:e plats i nämnd ordning. Sensationsmannen Elvin, som vann söndagens tävling i Örebro helgen innan, följde upp med en stark 7:e plats.
+
+## De äldre håller ställningarna
+
+Den som av någon anledning inbillat  sig att fäktarna med fler årsringar i bagaget frivilligt skulle ge upp mark har dock tagit miste. Ehsan visade tydligt att hans hårda come-back-träning gett utdelning, med hela 18 segrar säkrade han in plats nummer 8.
+
+Ingen kan heller förneka att den nybakade VM-guldmedaljören i veteranklassen Janne Tivenius drog till sig publikens beundrande blickar. I vanlig ordning imponerade Janne stort, och med karaktäristisk elegans håvade guldmannen in hela 15 segrar.
+
+## Tjejerna imponerar
+
+Mitt i alla dessa bragder fortsatte tjejerna, på ett nästan mekaniskt sätt, bryta sig igenom stormfloden av herrfäktare. Som vanligt leddes den expeditionen av Louise som tvingade till sig 9:e platsen genom att besegra 17 stycken motståndare. Även Linnea, Vendela och Neoli måste få ett välförtjänt hedersomnämnande.
+
+## Grigori igen
+
+Ovanpå denna svallvåg av sensationer surfade dock återigen Grigori hem en seger, den andra i ordningen. Med endast 2 förluster var Grigori i en klass för sig. Mycket respektingivande!
+
+Här kan ni lusläsa den fullständiga tablån
+
+![Tablån från deltävling 2](tabla_dt2.jpg)
+
+## Resultattabeller
+
+Som vanligt presenterar vi också alla relevanta tabeller, håll till godo!
+
+```{r}
+#| label: load-libraries
+
+library(tidyverse)
+library(here)
+library(stringr)
+library(gt)
+library(epoxy)
+```
+
+```{r}
+#| label: load-data-and-functions
+
+km <- read_csv(here("assets", "data", "km-res-2023.csv"))
+
+# Source calculate_points function
+source(here("assets", "functions", "custom_functions.R"))
+```
+
+```{r}
+#| label: set-manual-vars
+
+# Define current competition
+current_comp_name <- "km_2"
+
+# Define current comp no
+current_comp_no <- parse_number(current_comp_name)
+```
+
+```{r}
+#| label: grand_tot_prep
+
+# Select relevant competitions
+km_to_current <- km |> 
+  select(gender:current_comp_name)
+
+# Reshape data
+km_long <- km_to_current |> 
+  to_long_format()
+
+# Calculate points
+points <- km_long |> 
+  calculate_points()  
+
+grand_tot <- points |> 
+  calculate_grand_tot()
+
+tot_res <- points |> 
+  return_res()
+```
+
+Men, nog med prat, vi kastar oss över den fullständiga resultattabellen för deltävling 2
+
+```{r}
+#| label: comp_results_table
+
+points |> results_table()
+
+```
+
+### Damtävlingen
+
+Låt oss nu se hur ställningen i damtävlingen ser ut
+
+```{r}
+
+tot_res |> 
+  create_totals_gender_table("f", "damklassen")
+```
+
+Som vi ser är det 4 tappra damer som har satt tydliga spår i tävlingen, med dom "usual suspects" Louise och Linnea som frontfigurer.
+
+### Herrtävlingen
+
+Och här har vi herrklassens lista
+
+```{r}
+tot_res |> 
+  create_totals_gender_table("m", "herrklassen")
+```
+
+### Totallistan
+
+Med endast segrar toppar självklart Grigori listan med Vedran och Ian bakom sig, följda av Elvin.
+
+```{r}
+tot_res |>
+  create_totals_table()
+```
+
+## Vägen framåt
+
+Då återstår det bara att återigen kasta sig in i en hård träningsperiod för att briljera på nästa KM.
+
+Träna hårt!

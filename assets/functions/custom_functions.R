@@ -23,7 +23,7 @@ calculate_points <- function(df, place) {
                                15 ~ 4,
                                16 ~ 3,
                                17 ~ 2,
-                               .default = 1
+                               18:50 ~ 1
     ))
 }
 
@@ -38,18 +38,17 @@ to_long_format <- function(df){
                  values_to = "place")
 }
 
-
-
 # Create competition results table ---------------------------------------
 
-# Prepare table
 results_table <- function(df){
   df |> 
-    filter(comp_no == current_comp_no) %>% 
-    select(-c(gender, comp_no, points)) %>%
-    rename(Namn = name, Placering = place) %>% 
-    na.omit(Placering) %>% 
-    arrange(Placering) |> 
+    filter(comp_no == current_comp_no) |> 
+    select(-c(gender, comp_no)) |>
+    arrange(place) |> 
+    na.omit(place) |> 
+    rename(Namn = name,
+           Placering = place,
+           Poäng = points) |>  
     gt() |> 
     tab_header(
       title = paste0("Resultat från KM, deltävling ", 
@@ -88,41 +87,49 @@ return_res <- function(df){
     relocate(rank, everything())
 }
 
-# Prep data and split by gender as input for at gt() table
-prep_total_table<- function(df, selected_gender) {
+# Male and female standings -----------------------------------------------
+create_totals_gender_table <- function(df, selected_gender, selected_class){
   df |> 
     filter(gender == selected_gender) |>
-    #select(-gender) |> 
-    rename(Nr = rank, Namn = name, Totalt = sum_points) 
-}
-
-# Female totals table
-create_totals_table_f <- function(df, current_comp_no){
-  df %>% 
-    select(-gender) %>% 
-    gt() %>% 
+    filter(sum_points > 0) |> 
+    select(-c(rank, gender)) |> 
+    # Add ranking
+    mutate(rank = min_rank(desc(sum_points))) |> 
+    relocate(rank, everything()) |> 
+    arrange(rank) |> 
+    rename( "#" = rank,
+            Namn = name,
+            Totalt = sum_points) |> 
+    gt() |> 
     tab_spanner(
       label = "Deltävling nr.",
-      columns = -c(Nr, Namn, Totalt)
-    ) %>% 
+      columns = -c("#", Namn, Totalt)
+    ) |> 
     tab_header(
-      title = "Resultat i damklassen",
-      subtitle = paste0("Efter ", current_comp_no ," deltävlingar")
-    )
+      title = paste0("Resultat i ", selected_class),
+      subtitle = paste0("Efter ", current_comp_no ," deltävlingar"))
 }
 
-# Male totals table
-create_totals_table_m <- function(df, current_comp_no){
-  df %>% 
-    select(-gender) %>% 
-    gt() %>% 
+
+# Total standings ---------------------------------------------------------
+create_totals_table <- function(df){
+  df |> 
+    filter(sum_points > 0) |> 
+    select(-c(rank, gender)) |> 
+    # Add ranking
+    mutate(rank = min_rank(desc(sum_points))) |> 
+    relocate(rank, everything()) |> 
+    arrange(rank) |> 
+    rename( "#" = rank,
+            Namn = name,
+            Totalt = sum_points) |> 
+    gt() |> 
     tab_spanner(
       label = "Deltävling nr.",
-      columns = -c(Nr, Namn, Totalt)
-    ) %>% 
+      columns = -c("#", Namn, Totalt)
+    ) |> 
     tab_header(
-      title = "Resultat i herrklassen",
-      subtitle = paste0("Efter ", current_comp_no ," deltävlingar")
-    )
+      title = "Totalsammanställning ",
+      subtitle = paste0("Efter ", current_comp_no ," deltävlingar"))
 }
 
