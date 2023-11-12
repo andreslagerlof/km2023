@@ -3,7 +3,7 @@ title: "Rapport från KM, deltävling 3"
 author: "Andrés"
 date: "2023-11-12"
 image: "ernest_winner.jpg"
-description: "Återigen pressades intensiteten till obegriplig nivå när den 3:e deltävlingen av årets KM fäktades. Det resulterade i dramatiska omflyttningar i totallistan."
+description: "Återigen pressades intensiteten till en obegriplig nivå när den 3:e deltävlingen av årets KM fäktades. Det resulterade i dramatiska omflyttningar i totallistan."
 execute:
   echo: false
   warning: false
@@ -11,13 +11,15 @@ execute:
 
 ![Ernest, kvällens bästa fäktare](ernest_winner.jpg)
 
-Den som kom in till klubben från gatan i torsdags fick uppleva de få andra har varit med om, att gå från en mörk och grå höstvärld in i en helt annan värld vars luft vibrerar av förväntan och där all gör sig redo för att drabbas samman i vårcupens 3e deltvävling!
+Den som kom in till klubben från gatan i torsdags fick uppleva de få andra har varit med om, att gå från en mörk och grå höstvärld till en helt annan värld vars luft vibrerar av förväntan och där alla gör sig redo för att drabbas samman i vårcupens 3e deltvävling!
 
 ![Neolie och Liv utbyter taktiska råd](tjejer-taktik.jpg)
 
 ### Några ord om startfältet
 
-Denna kväll, torsdagen den 9 november 2023, var alldeles unik. För första gången detta år skulle vare sig Grigori eller Ian göra anspråk på topplatserna eftersom båda var upptagna på annat håll. Ryktet hade spridit sig och horder av lycksökare som hoppades kunna skriva in sig i historeböckerna stömmade in i fäktsalen. Där fanns det rutinerade gardet så som CH, Janne som fortfarande strålade av guldglans, Ehsan som var fast besluten om att klättra på listan. Men också en stark skara yngre utmanare, så som Elvin, Otis, Holger, Marco med flera. Ett särskilt hedersomnämnande gjorde också Sixten sig väl förtjänt av då han, utan att darra på rösten anmälde sig till sekretariatet.
+Denna kväll, torsdagen den 9 november 2023, var alldeles unik. För första gången detta år skulle vare sig Grigori eller Ian göra anspråk på topplatserna eftersom båda var upptagna på annat håll. Ryktet hade spridit sig och horder av lycksökare som hoppades kunna skriva in sig i historeböckerna stömmade in i fäktsalen. Där fanns det rutinerade gardet så som CH, Janne som fortfarande strålade av guldglans och Ehsan, alla fast beslutna att klättra på listan.
+
+På plats fanns också en stark skara yngre utmanare, om exempelvis Elvin, Otis, Holger, Marco. Ett särskilt hedersomnämnande gjorde också Sixten sig väl förtjänt av då han, utan att darra på rösten anmälde sig till sekretariatet.
 
 Också denna gång kunde vi glädjas åt långväga gäster, eller vad sägs om Liv och Matteo från Saltsjöbaden eller Erik från Ängby och Neoli från Lidingö. Varmt välkomna!
 
@@ -25,7 +27,7 @@ Också denna gång kunde vi glädjas åt långväga gäster, eller vad sägs om 
 
 När tävlingsledaren Tor, med mullrande stämma förkunnade att tävlingen kunde börja hade inte mindre än 20 ivriga fäktare sett till att få sina namn inskrivna i protokollet.
 
-Otis, Holger och Elvin rivstartade och kunde snabbt rada upp ett antal segrar. Även Ehsan gav sig till känna genom att nedlägga byten i drivor. 
+Otis, Holger och Elvin rivstartade och kunde snabbt rada upp segrar. Även Ehsan gav sig till känna genom att nedlägga byten i drivor. 
 
 Betydligt trögare gick det inledningsvis för CH som med bekymrad min inledde tävlingen genom att placera sig i något som närmast kan beskrivas som en fäktningens motsvarighet till parterreläge. Inte alls den glamorösa start som han hade sett framför sig.
 
@@ -35,19 +37,19 @@ Betydligt trögare gick det inledningsvis för CH som med bekymrad min inledde t
 
 Efter den inledande starten gick tävlingen in i en tystare fas bestående av järnhårda viljors kamp för att samla in segrar. I detta dramatiska skede tvingades tyvärr Linnea avbryta sin annars så framgångsrika framfart på grund av en stukad fot. Synd, för annars skulle hon med all sannolikhet placerat sig i toppen som vanligt.
 
-Nu visade också Elvin och Lukas att de tagit väl vara på tiden i Polen, där han veckan innan varit på träningslägret med världseliten och klubbens främsta fäktare. Otis fäktade alltjämt bra, men nu började hans inledande fäktraseri mattas av något. 
+Nu visade också Elvin och Lukas att de tagit väl vara på tiden i Polen, där de veckan innan varit på träningslägret med världseliten och klubbens främsta fäktare. Otis fäktade alltjämt bra, men nu började hans inledande fäktraseri mattas av något. 
 
 Längre ned i salen kunde man höra Jannes energiska skrik när han metodiskt betade av fältet av motståndare. I närheten hade också CH lyckat komma på fötter och kunde med förnyad entusiasm rapportera in idel segrar.
 
 ### Slutstriden
 
-När kvällen närmade sig sitt slut kunde publiken konstatera att det skulle bli en knivskarp strid om platserna 2 till 4 mellan Lukas, CH och Elvin. När samtliga matcher var fäktare hade alla tre samlat ihop inte mindre än 14 matcher vardera, varför stöträkning fick avgöra placeringen. Resultatet föll ut till fördel för Elvin, följd av Lukas och CH, fick glädja sig åt en 4:e plats.
+När kvällen närmade sig sitt slut kunde publiken konstatera att det skulle bli en knivskarp strid om platserna 2 till 4 mellan Lukas, CH och Elvin. När samtliga matcher var fäktare hade alla tre samlat ihop inte mindre än 14 segrar vardera, varför stöträkning fick avgöra placeringen. Resultatet föll ut till fördel för Elvin, följd av Lukas. CH, fick glädja sig åt en 4:e plats.
 
 Även om platserna 5 till 7 var det jämt, också här var det stöträkning som behövdes för att sklja på fäktarna. Det var Francesco, Holger och Ehsan, alla med 12 segrar som i nämnd ordning hamnade i resultatlistan.
 
 ### Kvällens mästare
 
-I tysthet, var det dock Ernest som lämnade allt motstånd långt bakom sig. Av de18 matcherna var det endast Lukas som kunde bärga hem en seger. Med den glada känslan av att ha varit den ohotade segraren kunde Ernest med spänstiga steg vandra hemåt i höstrusket. Ett stort grattis Ernest!
+I tysthet, var det dock Ernest som lämnade allt motstånd långt bakom sig. Av de18 matcherna var det endast Lukas som kunde sno åt sig en seger. Med den glada känslan av att ha varit den ohotade segraren kunde Ernest med spänstiga steg vandra hemåt i höstrusket. Ett stort grattis Ernest!
 
 ![Det fullständiga protokollet](km3_protokoll.jpg)
 
