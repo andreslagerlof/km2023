@@ -1,0 +1,139 @@
+---
+title: "Rapport från KM, deltävling 3"
+author: "Andrés"
+date: "2023-11-12"
+image: "ernest_winner.jpg"
+description: "Återigen pressades intensiteten till obegriplig nivå när den 3:e deltävlingen av årets KM fäktades. Det resulterade i dramatiska omflyttningar i totallistan."
+execute:
+  echo: false
+  warning: false
+---
+
+![Ernest, kvällens bästa fäktare](ernest_winner.jpg)
+
+Den som kom in till klubben från gatan i torsdags fick uppleva de få andra har varit med om, att gå från en mörk och grå höstvärld in i en helt annan värld vars luft vibrerar av förväntan och där all gör sig redo för att drabbas samman i vårcupens 3e deltvävling!
+
+![Neolie och Liv utbyter taktiska råd](tjejer-taktik.jpg)
+
+### Några ord om startfältet
+
+Denna kväll, torsdagen den 9 november 2023, var alldeles unik. För första gången detta år skulle vare sig Grigori eller Ian göra anspråk på topplatserna eftersom båda var upptagna på annat håll. Ryktet hade spridit sig och horder av lycksökare som hoppades kunna skriva in sig i historeböckerna stömmade in i fäktsalen. Där fanns det rutinerade gardet så som CH, Janne som fortfarande strålade av guldglans, Ehsan som var fast besluten om att klättra på listan. Men också en stark skara yngre utmanare, så som Elvin, Otis, Holger, Marco med flera. Ett särskilt hedersomnämnande gjorde också Sixten sig väl förtjänt av då han, utan att darra på rösten anmälde sig till sekretariatet.
+
+Också denna gång kunde vi glädjas åt långväga gäster, eller vad sägs om Liv och Matteo från Saltsjöbaden eller Erik från Ängby och Neoli från Lidingö. Varmt välkomna!
+
+### Tävlingen börjar
+
+När tävlingsledaren Tor, med mullrande stämma förkunnade att tävlingen kunde börja hade inte mindre än 20 ivriga fäktare sett till att få sina namn inskrivna i protokollet.
+
+Otis, Holger och Elvin rivstartade och kunde snabbt rada upp ett antal segrar. Även Ehsan gav sig till känna genom att nedlägga byten i drivor. 
+
+Betydligt trögare gick det inledningsvis för CH som med bekymrad min inledde tävlingen genom att placera sig i något som närmast kan beskrivas som en fäktningens motsvarighet till parterreläge. Inte alls den glamorösa start som han hade sett framför sig.
+
+![Tävlingsintensitet](kamp.jpg)
+
+### Kvällen fortsätter
+
+Efter den inledande starten gick tävlingen in i en tystare fas bestående av järnhårda viljors kamp för att samla in segrar. I detta dramatiska skede tvingades tyvärr Linnea avbryta sin annars så framgångsrika framfart på grund av en stukad fot. Synd, för annars skulle hon med all sannolikhet placerat sig i toppen som vanligt.
+
+Nu visade också Elvin och Lukas att de tagit väl vara på tiden i Polen, där han veckan innan varit på träningslägret med världseliten och klubbens främsta fäktare. Otis fäktade alltjämt bra, men nu började hans inledande fäktraseri mattas av något. 
+
+Längre ned i salen kunde man höra Jannes energiska skrik när han metodiskt betade av fältet av motståndare. I närheten hade också CH lyckat komma på fötter och kunde med förnyad entusiasm rapportera in idel segrar.
+
+### Slutstriden
+
+När kvällen närmade sig sitt slut kunde publiken konstatera att det skulle bli en knivskarp strid om platserna 2 till 4 mellan Lukas, CH och Elvin. När samtliga matcher var fäktare hade alla tre samlat ihop inte mindre än 14 matcher vardera, varför stöträkning fick avgöra placeringen. Resultatet föll ut till fördel för Elvin, följd av Lukas och CH, fick glädja sig åt en 4:e plats.
+
+Även om platserna 5 till 7 var det jämt, också här var det stöträkning som behövdes för att sklja på fäktarna. Det var Francesco, Holger och Ehsan, alla med 12 segrar som i nämnd ordning hamnade i resultatlistan.
+
+### Kvällens mästare
+
+I tysthet, var det dock Ernest som lämnade allt motstånd långt bakom sig. Av de18 matcherna var det endast Lukas som kunde bärga hem en seger. Med den glada känslan av att ha varit den ohotade segraren kunde Ernest med spänstiga steg vandra hemåt i höstrusket. Ett stort grattis Ernest!
+
+![Det fullständiga protokollet](km3_protokoll.jpg)
+
+### En blick på tabellerna
+
+Då var det äntligen dags att djupdyka i tabellerna.
+
+Vi börjar i vanlig ordning med att redovisa slutresultatet från den 3:e deltävlingen.
+
+#### Deltävling 3
+
+```{r}
+#| label: load-libraries
+
+library(tidyverse)
+library(here)
+library(stringr)
+library(gt)
+library(epoxy)
+```
+
+```{r}
+#| label: load-data-and-functions
+
+km <- read_csv(here("assets", "data", "km-res-2023.csv"))
+
+# Source calculate_points function
+source(here("assets", "functions", "custom_functions.R"))
+```
+
+```{r}
+#| label: set-manual-vars
+
+# Define current competition
+current_comp_name <- "km_3"
+
+# Define current comp no
+current_comp_no <- parse_number(current_comp_name)
+```
+
+```{r}
+#| label: grand_tot_prep
+
+# Select relevant competitions
+km_to_current <- km |> 
+  select(gender:current_comp_name)
+
+# Reshape data
+km_long <- km_to_current |> 
+  to_long_format()
+
+# Calculate points
+points <- km_long |> 
+  calculate_points()  
+
+grand_tot <- points |> 
+  calculate_grand_tot()
+
+tot_res <- points |> 
+  return_res()
+```
+
+```{r}
+#| label: comp_results_table
+
+points |> results_table()
+```
+
+#### Damtävlingen
+
+Louise och Linnea håller alltjämt damtävlingen i ett fast grepp. Neolie tog ett rejält skutt uppåt tack vare sin starka insats i torsdagens tävling.
+
+```{r}
+#| label: ladies_table
+tot_res |> 
+  create_totals_gender_table("f", "damklassen")
+```
+
+#### Totallistan
+
+Elvins har sedan starten levererat på hög nivå och med torsdagens bragd har han ryckt åt sig en välförtjänt ledning i totalsammanställningen, dock med minsta möjliga marginal före Grigori. Ernest tog ett rejält språng uppåt i listan och har nu erövrat 3:e platsen, före Vedran. Därefter kommer de äldre fäktarnas spjutspets i form av Ehsan, men Ian är honom i hälarna.
+
+```{r}
+#| label: totals_table
+tot_res |>
+  create_totals_table()
+```
+
+För tävlingsledningens del är det bara att tacka för denna gång och påminna alla om att lägga på en spurt i träningen, nu återstår endast 2 stenhårda deltävlingar av årets KM!
