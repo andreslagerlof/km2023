@@ -1,0 +1,14 @@
+{
+  "hash": "c700e015794f03fbecf15385d2587063",
+  "result": {
+    "markdown": "---\ntitle: \"Uttagning till lag-SM\"\nauthor: \"Andrés\"\nformat: html\neditor: visual\nexecute:\n  echo: false\n  warning: false\n---\n\n\n## Uttagningsregler\n\nFFF:s uttagningssystem till SENIOR lag-SM för damer och herrar.\n\n#### Lag 1 till 3 tas ut på poäng\n\nUttagning till lag 1, 2 och 3 sker efter poäng. Det finns totalt 7 uttagningstävlingar uppdelade i 2 kategorier, varav de 2 bästa tävlingsresultaten inom respektive kategori räknas. Det innebär att varje fäktare maximalt kan räkna poäng från 4 kvalificeringstävlingar, 2 från vanlig svenska tävlingar samt 2 från FIE satellittävlingar.\n\n#### Om poäng saknas -- uttagning på tränarnas bedömning\n\nOm det inte finns tillräckligt med fäktare som tagit poäng för att fylla lag 1 till 3 sker uttagning enligt tränarnas bedömning. Om det finns fäktare till fler än 3 lag tas dessa i första hand ut på poäng och därefter enligt tränarnas bedömning.\n\n::: callout-important\n## Ändringar\n\nSedan uttagningsreglerna publicerades har satellittävlingar upphört på grund av Rysslands invasionskrig i Ukraina. Tävlingarna har genomförts men de har inte längre status som FIE satelite. Detta ändrar dock inte vårt uttagningsystem.\n:::\n\n### Tävlingskategori 1, vanliga svenska tävlingar samt KM\n\nTävlingskategori 1 omfattar 3 tävlingar och dessa är:\n\n1.  Uppsala cup, 9-10 september\n\n2.  Örebro Masters, 14-15 oktober\n\n3.  KM (totalsammanställning, dvs de 4 bästa deltävlingarna av 5)\n\nPoängfördelningen i denna kategori (samma poängfördelning för alla tävlingar i denna kategori):\n\n| Placering   | Poäng |\n|-------------|-------|\n| 1:a         | 30    |\n| 2:a         | 26    |\n| 3:a         | 22    |\n| 5 till 8    | 18    |\n| 9 till 16   | 14    |\n| 17 till 32  | 10    |\n| 33 till 64  | 6     |\n| 65 till 96  | 2     |\n| 97 till 128 | 1     |\n|             |       |\n\n### Tävlingskategori 2, Nordic Challenge\n\nTävlingskategori 1 omfattar 4 tävlingar och dessa är:\n\n1.  Challenge Bernadotte, SWE, 16 september:\n\n2.  Kupittaa Tournament Åbo, FIN, 23 september:\n\n3.  NM Käriku, EST, 7-8 oktober\n\n4.  Oslo Cup, NOR, 28 oktober\n\nPoängfördelningen i denna kategori (samma poängfördelning för alla tävlingar i denna kategori):\n\n| Placering    | Poäng |\n|--------------|-------|\n| 1:a          | 50    |\n| 2:a          | 42    |\n| 3:a          | 34    |\n| 5 till 8     | 27    |\n| 9 till 16    | 20    |\n| 17 till 32   | 15    |\n| 33 till 64   | 10    |\n| 65 till 96   | 5     |\n| 97 till 128  | 3     |\n| 129 till 256 | 1     |\n\n: Poängfördelning för tävlingar kategori2\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

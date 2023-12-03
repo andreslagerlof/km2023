@@ -1,0 +1,135 @@
+---
+title: "Rapport från KM deltävling 4"
+author: "Andrés"
+date: "2023-11-27"
+image: "christopher_winner_km4_2.jpeg"
+description: ""
+execute:
+  echo: false
+  warning: false
+---
+
+```{r}
+#| label: load-libraries
+
+library(tidyverse)
+library(here)
+library(stringr)
+library(gt)
+library(epoxy)
+```
+
+```{r}
+#| label: load-data-and-functions
+
+km <- read_csv(here("assets", "data", "km-res-2023.csv"))
+
+# Source calculate_points function
+source(here("assets", "functions", "custom_functions.R"))
+```
+
+```{r}
+#| label: set-manual-vars
+
+# Define current competition
+current_comp_name <- "km_4"
+
+# Define current comp no
+current_comp_no <- parse_number(current_comp_name)
+```
+
+```{r}
+#| label: grand_tot_prep
+
+# Select relevant competitions
+km_to_current <- km |> 
+  select(gender:current_comp_name)
+
+# Reshape data
+km_long <- km_to_current |> 
+  to_long_format()
+
+# Calculate points
+points <- km_long |> 
+  calculate_points()  
+
+grand_tot <- points |> 
+  calculate_grand_tot()
+
+tot_res <- points |> 
+  return_res()
+```
+
+## Utmaningen, KM och K2
+
+[![K2, från Wikipedia. Av Svy123 - Eget arbete, CC BY 3.0](K2_2006b.jpg)](https://commons.wikimedia.org/w/index.php?curid=3411046)
+
+KM är, som ni alla känner till, en strapatsrik expedition in i det okända. Av många har det liknats vid att bestiga ett berg av massiva proportioner. För att beskrivningen ska vara rättvisande måste vi verkligen ta i, inga normala berg som exempelvis Kebnekaise gör inte liknelsen rättvisa. Nej, det vi här pratar om är enorma utmaningar, tänk er snarare K2, så får ni en realistisk bild av utmaningen. Uppgiften denna gång i den näst sista deltävlingen var att ta sig upp till avsatsen innan den slutgiltiga toppattacken. 
+
+## Samling vid base camp
+
+Med tanke på utmaningens omfattning hade man kunnat förvänta sig att endast en liten, exklusiv och hårdför grupp äventyrare skulle vara villig att ta sig till base camp. Förbluffande nog fylldes deltagarprotokollet med inte mindre än 24 namn.
+
+Denna brokiga skara kan delas upp i olika undergrupper. Grigori tillbaka, men här fanns unga lycksökare som Marco, Teodor, Georg och Otis. Unga vuxna som vill skriva in sig i fäkthistorien som Francesco, Ian, Elvin, Holger, Ernest, Lukas, Linnea och liknande. Samt de rutinerade livstidsäventyrarna, eller Sherpas, såsom Greger, Janne och CH. Och någonstans en mytisk vålnad, vars namn ingen vågade nämna.
+
+Liksom tidigare kunde vi också med glädje välkomna tillresta experter i form av Erik och landslagsstjärnan Christopher Kelly.
+
+![Elvin analyserar läget](elvin_km4.jpeg)
+
+## Startskottet brinner av
+
+Årets suverän -- Grigori -- som hittills lämnat motståndet utan chans när han deltagit, kände redan vid start att allt inte var som vanligt. Fäktningen flöt inte på samma sätt som tidigare. Istället fick han borra ned huvudet och kämpa för varje stöt. En annan som inledningsvis flög fram över pisten var Matthias som stampade ner allt som kom i hans väg. Även Erik överraskade positivt.
+
+![Kampen rasar](action_km4.jpeg)
+
+## Demonen väcks till liv
+
+Helt plötsligt gick ett skräckfyllt sus genom församlingen. En mytisk varelse som de flesta hört talas om, men som alla hoppats få undslippa gick som ett snöskred genom expeditionen och drog många med sig i fördärvet. Denna vålnad, som under decennier plågat alla som försökt sig på att klättra upp på KM-toppen, tävlingens egna Yeti (Tor) hade fått upp farten. 
+
+## Hur slutade det?
+
+![Tävlingsprotokollet](protokoll_km4.jpeg)
+
+När snödimman lättat kunde man se att Tor rövade åt sig hela 21 segrar med vilka han säkrade 2:a platsen. På 3:e platsen fanns Vedran som hade säkrat 19 segrar. Grigoris slit räckte till 17 segrar och därmed en 4:e platsen före Ian. Matthias framfart förärade honom en stark 7:e plats.
+
+Dessa alla hjälteinsatser till trots var det Christopher som elegant utnyttjade sin räckvidd för att hålla alla sina motståndare på behörigt avstånd som gick hem med segern. Med endast en förlust var Christopher tävlingens självklara segrare. Stort grattis Christopher!
+
+![Christopher, segrare i deltävling 4](christopher_winner_km4.jpeg)
+
+## Låt oss titta på tabellerna
+
+Så här ser den fullständiga resultatlistan från deltävling 4 ut
+
+```{r}
+#| label: comp_results_table
+
+points |> results_table()
+```
+
+### Damklassen
+
+Som vanligt är Louise och Linnea som toppar damklassen
+
+```{r}
+#| label: ladies_table
+tot_res |> 
+  create_totals_gender_table("f", "damklassen")
+```
+
+### Totalsammanställningen
+
+Med 4 etapper avklarade ser vi nu att Grigori alltjämt har förstaplatsen i sin ägo. Sensationsannen Elvin har en imponerande 2:a plats före Vedran som 3:a, med Ian efter sig.
+
+Som vi minns är det dock de 4 bästa resultaten som räknas så den sista deltävlingen kommer att avgöra.
+
+```{r}
+#| label: totals_table
+tot_res |>
+  create_totals_table()
+```
+
+Kom ihåg att den sista och avgörande deltävlingen kommer att ske redan nästa torsdag så träna som galningar till dess!
+
+Kämpa hårt,
+
+*Redaktionen*
