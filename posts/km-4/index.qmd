@@ -3,7 +3,7 @@ title: "Rapport från KM deltävling 4"
 author: "Andrés"
 date: "2023-11-27"
 image: "christopher_winner_km4_2.jpeg"
-description: ""
+description: "Den 4:e och näst sista deltävlingen var exakt så spännande som vi hade förväntat. Christopher nådde den här gången hela vägen till segern."
 execute:
   echo: false
   warning: false
