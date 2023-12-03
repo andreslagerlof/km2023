@@ -108,7 +108,7 @@ points |> results_table()
 
 ### Damklassen
 
-Som vanligt är Louise och Linnea som toppar damklassen
+Som vanligt är Louise och Linnea som toppar damklassen. Neolie, som nu är FFF:are är 3:a. Välkommen som FFF:are Neolie!
 
 ```{r}
 #| label: ladies_table
