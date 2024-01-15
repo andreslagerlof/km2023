@@ -1,0 +1,173 @@
+---
+title: "Rapport från deltävling 5"
+author: "Andrés"
+date: "2024-01-15"
+image: "segrare_km_2023_closeup.jpg"
+description: "Äntligen har vi segrare i KM 2023! Det har varit en lång och äventyrsfylld resa, men nu är den över. Läs mer om hur allt slutade."
+execute:
+  echo: false
+  warning: false
+---
+
+```{r}
+#| label: load-libraries
+
+library(tidyverse)
+library(here)
+library(stringr)
+library(gt)
+library(epoxy)
+```
+
+```{r}
+#| label: load-data-and-functions
+
+km <- read_csv(here("assets", "data", "km-res-2023.csv"))
+
+# Source calculate_points function
+source(here("assets", "functions", "custom_functions.R"))
+```
+
+```{r}
+#| label: set-manual-vars
+
+# Define current competition
+current_comp_name <- "km_5"
+
+# Define current comp no
+current_comp_no <- parse_number(current_comp_name)
+```
+
+```{r}
+#| label: grand_tot_prep
+
+# Select relevant competitions
+km_to_current <- km |> 
+  select(gender:current_comp_name)
+
+# Reshape data
+km_long <- km_to_current |> 
+  to_long_format()
+
+# Calculate points
+points <- km_long |> 
+  calculate_points()  
+
+grand_tot <- points |> 
+  calculate_grand_tot()
+
+best_4 <- points |> 
+  calculate_top_4()
+
+tot_res <- points |> 
+  return_res_final()
+```
+
+Att blicka tillbaka på år 2023 känns som att stå på ett enormt berg varifrån man har en fri horisont så långt ögat når, men där det nästan är omöjligt att se detaljerna i fjärran. Lika avlägset känns det när man tänker tillbaka på torsdagen den 28 september då resan mot 2023 års KM tog sin början.
+
+![Klubbmästarna: Ian och Linnea. Fotograf: Tor Forsse](segrare_km_2023.jpg)
+
+## Läget inför den sista deltävlingen
+
+När det blev känt att Grigori inte kunde delta i den 5:e och sista deltävlingen stod det klart att den nya generationens fäktare skulle erövra tronen, frågan blev istället vem skulle det bli? Efter den 4:e deltävlingen låg förvisso Elvin högst upp på listan, men eftersom man enligt reglerna får  räkna de 4 bästa resultaten, var utgången alltjämt osäker. Bakom Elvin jagade en kvartett med namnen Vedran, Ian, Ernest och Lukas. 
+
+För att inte helt släppa fältet fritt för dessa yngre fäktare fanns ett kluster bestående av Janne, Tor och CH som skulle göra allt i sin makt för att hålla emot.
+
+På damsidan, hade Louse skapat sig ett utrymme på 9 poäng före den jagande Linnea. Dessvärre satte en efterhängsen skada stopp för Louise att försvara sin placering i den sista deltävlingen, vilket gav Linnea en öppning att ta hem KM-titeln.
+
+## Tävlingen börjar
+
+![Full fart i den julpyntade fäktsalen](julfint.jpg)
+
+Till att börja med löpte fäktningen inte fullt så enkelt som Ian hand hoppats, däremot överraskade CH positivt. Redan några matcher in i tävlingen visade det sig att lamporna var på CHs sida denna dag och snart bredde ett stort leende ut sig över CHs ansikte. I takt med att segrarna hopade sig uppfylldes CH av en sådan eufori att han, med faderlig omsorg, också gärna delade med sig av sina omfattande kunskaper till alla omkring sig, oavsett om de förstod att uppskatta denna gåva eller inte.
+
+När kvällen led mot sitt slut återstod det endast en seger innan CH skulle få ta emot publiken jubel för en sensationell seger. Men som många fått erfara är det farligt att sälja skinnet innan björnen är skjuten och kanske tog CH blicken från banan lite för tidigt. Som motståndare i sista matchen konfronteras CH med en fäktare som i fråga om längd och vikt inte kunde mäta sig med honom, men om man istället mäter kämparanda är det svårt att hitta någon som kan matcha Teodor. Istället för att få lyfta handen i en väl inövad segergest, fick CH istället se en morsk Teodor som kopplade ur sig som segrare.
+
+Nu tog ett febrilt räknande vid och efter en kort stund visade det sig att Ian hade återhämtat sig så pass från sin trevande start att han nu tvingade till sig en omfäktning mot CH.
+
+## Avgörandet
+
+![Finalen mellan Ian och CH](final.jpg)
+
+Nu riktades hela salens blickar mot CH och Ian som skulle göra upp om vem som skulle bli kvällens hjälte. För Ians del låg även mer i potten, en seger ikväll skulle innebära att hans namn skulle skrivas in i historieböckerna som FFF:s klubbmästare!
+
+Ian tog därför resolut ledningen med 2-1, men släppte sedan av på tempot, vilket passade CH utmärkt. Kort därefter hade CH övertagit ledningen med 3-2, men längre än så kom han inte. Ian tog sedan kommandot över matchen och inte långt efteråt kunde Ian lyfta på masken och ta emot åskådarnas öronbedövande jubel!
+
+På damsidan kämpade Linnea till sig en respektingivande 9:e plats, vilket gav henne precis de poäng hon behövde för att ta sig före Louise. Stort grattis Linnea!
+
+## Resultatet i den sista deltävlingen
+
+Här kan ni se att Elwin fäktade till sig 3:e platsen efter Ian och CH
+
+```{r}
+#| label: comp_results_table
+
+points |> results_table()
+```
+
+Så här blev det fullständiga protokollet
+
+![Protokollet från den 5:e och sista deltävlingen](protokoll_km5.jpg)
+
+## Sammanställning
+
+### Damklassen
+
+På damsidan blev sålunda det slutgiltiga resultatet så här, med Linnea, Louise och Vendela på de tre översta platserna
+
+```{r}
+#| label: ladies_table 
+
+tot_res |>
+  filter(!is.na(rank),
+         gender == "f")|> 
+  select(-gender) |> 
+  arrange(rank) |> 
+    rename( "#" = rank,
+            Namn = name,
+            Totalt = sum_points,
+            `4 bästa` = sum_top4_points) |> 
+  gt() |> 
+  tab_spanner(
+      label = "Deltävling nr.",
+      columns = -c("#", Namn, `4 bästa`, Totalt)
+    ) |> 
+    tab_header(
+      title = "Totalsammanställning ",
+      subtitle = paste0("Efter ", current_comp_no ,
+                        " deltävlingar"))
+```
+
+### Totalsammanställningen
+
+Som tidigare nämnts av Ian, följd av Elwin och Grigori.
+
+```{r}
+#| label: totals_table 
+
+slut_res <- tot_res |>
+  select(-gender) |> 
+  arrange(rank) |> 
+  filter(!is.na(rank)) |> 
+    rename( "#" = rank,
+            Namn = name,
+            Totalt = sum_points,
+            `4 bästa` = sum_top4_points) |> 
+  gt() |> 
+  tab_spanner(
+      label = "Deltävling nr.",
+      columns = -c("#", Namn, `4 bästa`, Totalt)
+    ) |> 
+    tab_header(
+      title = "Totalsammanställning ",
+      subtitle = paste0("Efter ", current_comp_no ,
+                        " deltävlingar"))
+
+slut_res
+```
+
+## Tack för den här gången!
+
+Nu återstår det bara att gratulera alla som gjort årets KM till en sådan framgång! Tävlingsledningen tackar alla som deltagit. Men nu är tiden att blicka tillbaka över. Istället riktar vi in vår energi mot den kommande Vårcupen, som med all säkerhet kommer att gå till historien. 
+
+Träna hårt så ses vi på Vårcupen!

@@ -66,6 +66,21 @@ calculate_grand_tot <- function(df){
     arrange(desc(sum_points))
 }
 
+
+# Calculate top 4 results -------------------------------------------------
+
+# Calculate points for the 4 best competitions
+calculate_top_4 <- function(df){
+  df |> 
+    group_by(name) |> 
+    slice_max(points, 
+              n = 4,
+              with_ties = FALSE) |> 
+    summarise(sum_top4_points = sum(points, na.rm = TRUE)) |> 
+    filter(sum_top4_points > 0) |> 
+    arrange(desc(sum_top4_points))
+}
+
 # Crete standings table including rank and totals -------------------------
 
 # modify data to produce all necessary variables
@@ -86,6 +101,27 @@ return_res <- function(df){
     mutate(rank = min_rank(desc(sum_points))) |> 
     relocate(rank, everything())
 }
+
+
+# Create final standings table including rank and totals ------------------
+return_res_final <- function(df){
+  # prepare standings table
+  df |> 
+    select(-place) |>  
+    pivot_wider(
+      names_from = comp_no, 
+      values_from = points) |> 
+    
+    # Create new piv df with totals column
+    full_join(grand_tot, by = "name") |>  
+    full_join(best_4, by = "name") |> 
+    arrange(desc(sum_top4_points)) |> 
+    
+    # Add ranking
+    mutate(rank = min_rank(desc(sum_top4_points))) |> 
+    relocate(rank, everything())
+}
+
 
 # Male and female standings -----------------------------------------------
 create_totals_gender_table <- function(df, selected_gender, selected_class){
